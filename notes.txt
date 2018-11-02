@@ -1,0 +1,2 @@
+- Setup sqlite3 and make sure it works
+- Design API

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './App.css';
+import TableForm from './tableForm';
 
 interface IAppState {users: [any?]};
 
@@ -9,18 +10,19 @@ class App extends React.Component<{}, IAppState> {
     this.state = { users:[] };
   }
 
-  public async componentDidMount() {
-    const res = await fetch("/users");
-    const users = await res.json();
-    this.setState({users});
-  }
+  // public async componentDidMount() {
+  //   const res = await fetch("/users");
+  //   const users = await res.json();
+  //   this.setState({users});
+  // }
 
   public render() {
     return (
       <div className="App">
-      {this.state.users.map(user => 
+      {/* {this.state.users.map(user => 
         <div key={user.id}>{user.name} is friends with {user.friend}.</div>
-      )}
+      )} */}
+      <TableForm formTitle="myForm" />
       </div>
     );
   }

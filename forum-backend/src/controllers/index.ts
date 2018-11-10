@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req : Request, res : Response, next : NextFunction) {
-  res.json({"info":"Nothing to see here."});
+  res.json({"info":"Nope, there's only trash here."});
 });
 
 export default router;

@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import indexRoute from './controllers/index';
 import usersRoute from './controllers/users';
+import tableRoute from './controllers/table';
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/',indexRoute);
+app.use('/table',tableRoute);
 app.use('/users',usersRoute);
 
 export default app;

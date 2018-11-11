@@ -24,14 +24,22 @@ class TableForm extends React.Component<IFormProps, IFormState> {
         );
     }
 
-    private handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    private handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        alert("This would submit");
+        const res = await fetch(`/table/create`, {
+            body: JSON.stringify({"tableName": this.state.tableName}),
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            method: "POST",
+        });
+        const status = await res.json();
+        alert(JSON.stringify(status));
     }
 
     private handleChange = (event: React.FormEvent<HTMLInputElement>) => {
         event.preventDefault();
-        this.setState({tableName: event.currentTarget.value}, () => alert(this.state.tableName));
+        this.setState({tableName: event.currentTarget.value});
     }
 };
 
